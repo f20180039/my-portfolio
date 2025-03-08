@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState<any>();
+  const [count, setCount] = useState<number>(0);
 
   console.log(count);
   useEffect(() => {
@@ -9,8 +9,12 @@ function App() {
   }, []);
 
   return (
-    <div className="ans-flex ans-bg-highlight ans-text-Pink-500">
+    <div
+      className="ans-flex ans-bg-highlight ans-text-Success-500"
+      onClick={() => setCount((prev) => prev + 1)}
+    >
       Let's get started
+
     </div>
   );
 }
