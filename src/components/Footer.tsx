@@ -4,30 +4,30 @@ export default function Footer() {
       <nav>
         <ul className="ans-flex ans-justify-center ans-gap-6 ans-mb-4">
           <li>
-            <a href="#about" className="ans-text-Gray-300 hover:ans-text-White">
+            <a href="/about" className="ans-text-Gray-300 hover:ans-text-White">
               About
             </a>
           </li>
           <li>
             <a
-              href="#experience"
-              className="ans-text-gray-300 hover:ans-text-White"
+              href="/experience"
+              className="ans-text-Gray-300 hover:ans-text-White"
             >
               Experience
             </a>
           </li>
           <li>
             <a
-              href="#projects"
-              className="ans-text-gray-300 hover:ans-text-White"
+              href="/projects"
+              className="ans-text-Gray-300 hover:ans-text-White"
             >
               Projects
             </a>
           </li>
           <li>
             <a
-              href="#contact"
-              className="ans-text-gray-300 hover:ans-text-White"
+              href="/contact"
+              className="ans-text-Gray-300 hover:ans-text-White"
             >
               Contact
             </a>
