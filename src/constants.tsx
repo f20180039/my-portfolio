@@ -17,3 +17,4 @@ export const NAV_LINKS = [
 export const C_LINKEDIN_URL =
   "https://linkedin.com/in/anshuman-singh-4546b5275";
 export const C_GITHUB_URL = "https://github.com/f20180039";
+export const C_HEALTHPLIX_URL = "https://www.healthplix.com";
