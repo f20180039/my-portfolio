@@ -10,16 +10,18 @@ import { EAPP_ROUTES } from "./constants";
 const App = () => {
   return (
     <Router>
-      <Header />
-      <main className="ans-flex ans-flex-1 ans-min-h-full ans-p-4">
-        <Routes>
-          <Route path={EAPP_ROUTES.home} element={<Home />} />
-          <Route path={EAPP_ROUTES.about} element={<About />} />
-          <Route path={EAPP_ROUTES.projects} element={<Projects />} />
-          <Route path={EAPP_ROUTES.contact} element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
+      <div className="ans-flex ans-flex-col ans-min-h-screen">
+        <Header />
+        <main className="ans-flex-1 ans-p-4">
+          <Routes>
+            <Route path={EAPP_ROUTES.home} element={<Home />} />
+            <Route path={EAPP_ROUTES.about} element={<About />} />
+            <Route path={EAPP_ROUTES.projects} element={<Projects />} />
+            <Route path={EAPP_ROUTES.contact} element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 };

@@ -1,42 +1,21 @@
-import { EAPP_ROUTES } from "../constants";
+import { Link } from "react-router-dom";
+import { NAV_LINKS } from "../constants";
 
 export default function Footer() {
   return (
-    <footer className="ans-flex ans-flex-col ans-text-White ans-py-6 ans-text-center ans-bg-Gray-900">
+    <footer className="ans-mt-auto ans-bg-Gray-900 ans-text-White ans-py-6 ans-text-center">
       <nav>
         <ul className="ans-flex ans-justify-center ans-gap-6 ans-mb-4">
-          <li>
-            <a
-              href={EAPP_ROUTES.about}
-              className="ans-text-Gray-300 hover:ans-text-White"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href={EAPP_ROUTES.experience}
-              className="ans-text-Gray-300 hover:ans-text-White"
-            >
-              Experience
-            </a>
-          </li>
-          <li>
-            <a
-              href={EAPP_ROUTES.projects}
-              className="ans-text-Gray-300 hover:ans-text-White"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href={EAPP_ROUTES.contact}
-              className="ans-text-Gray-300 hover:ans-text-White"
-            >
-              Contact
-            </a>
-          </li>
+          {NAV_LINKS.map(({ name, path }) => (
+            <li key={path}>
+              <Link
+                to={path}
+                className="ans-text-Gray-300 hover:ans-text-White"
+              >
+                {name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <p>Copyright &copy; 2024 Anshuman Singh. All Rights Reserved.</p>
