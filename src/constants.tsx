@@ -13,3 +13,7 @@ export const NAV_LINKS = [
   { name: "Projects", path: EAPP_ROUTES.projects },
   { name: "Contact", path: EAPP_ROUTES.contact },
 ];
+
+export const C_LINKEDIN_URL =
+  "https://linkedin.com/in/anshuman-singh-4546b5275";
+export const C_GITHUB_URL = "https://github.com/f20180039";

@@ -12,7 +12,7 @@ const App = () => {
     <Router>
       <div className="ans-flex ans-flex-col ans-min-h-screen">
         <Header />
-        <main className="ans-flex-1 ans-p-4">
+        <main className="ans-flex-1 ans-p-4 ans-bg-Gray-200">
           <Routes>
             <Route path={EAPP_ROUTES.home} element={<Home />} />
             <Route path={EAPP_ROUTES.about} element={<About />} />
