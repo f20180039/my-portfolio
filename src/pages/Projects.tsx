@@ -63,3 +63,23 @@ export default function Projects() {
     </section>
   );
 };
+
+// const Projects = () => (
+//   <div className="ans-p-8">
+//     <h1 className="ans-text-3xl ans-font-bold">Projects</h1>
+//     <ul className="ans-mt-4 ans-space-y-2">
+//       <li>
+//         Project 1 -{" "}
+//         <a href="#" className="ans-text-blue-500">
+//           View
+//         </a>
+//       </li>
+//       <li>
+//         Project 2 -{" "}
+//         <a href="#" className="ans-text-blue-500">
+//           View
+//         </a>
+//       </li>
+//     </ul>
+//   </div>
+// );

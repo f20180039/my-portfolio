@@ -36,3 +36,10 @@ export default function Contact() {
     </section>
   );
 }
+
+// const Contact = () => (
+//   <div className="ans-p-8">
+//     <h1 className="ans-text-3xl ans-font-bold">Contact Me</h1>
+//     <p className="ans-mt-4">Email: example@example.com</p>
+//   </div>
+// );

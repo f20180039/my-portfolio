@@ -19,7 +19,7 @@ const About = () => {
               <img src={experienceIcon} alt="Experience" className="icon" />
               <h3>Experience</h3>
               <p>
-                2+ years <br />
+                2.5+ years <br />
                 Frontend Development
               </p>
             </div>
@@ -43,3 +43,12 @@ const About = () => {
 };
 
 export default About;
+
+// const About = () => (
+//   <div className="ans-p-8">
+//     <h1 className="ans-text-3xl ans-font-bold">About Me</h1>
+//     <p className="ans-mt-4">
+//       I specialize in React, TypeScript, and modern frontend development.
+//     </p>
+//   </div>
+// );

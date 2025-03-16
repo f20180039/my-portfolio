@@ -4,68 +4,81 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <section className="ans-flex ans-flex-col ans-items-center ans-text-center ans-py-20 ans-bg-Gray-50 ans-min-h-screen">
-      {/* Profile Image */}
-      <img
-        src={Profile}
-        alt="Anshuman Singh"
-        className="ans-w-48 ans-h-48 ans-rounded-full ans-shadow-lg ans-object-cover"
-      />
+    <section className="ans-flex ans-flex-col md:ans-flex-row ans-items-center ans-justify-center ans-text-center md:ans-text-left ans-py-20 ans-bg-Gray-50 ans-px-6 md:ans-px-20">
+      <div className="ans-flex ans-flex-col ans-items-center md:ans-items-start ans-w-full md:ans-w-1/2 ans-gap-4">
+        <img
+          src={Profile}
+          alt="Anshuman Singh"
+          className="ans-w-48 ans-h-48 ans-rounded-full ans-shadow-lg ans-object-cover"
+        />
+        <h1 className="ans-text-4xl ans-font-bold ans-text-Blue-600">
+          Anshuman Singh
+        </h1>
+        <p className="ans-text-lg ans-text-Gray-500">
+          Frontend Engineer at HealthPlix Technologies
+        </p>
 
-      {/* Name & Title */}
-      <h1 className="ans-text-4xl ans-font-bold ans-text-Blue-600 ans-mt-4">
-        Anshuman Singh
-      </h1>
-      <p className="ans-text-lg ans-text-Gray-500 ans-mt-2">
-        Frontend Engineer at HealthPlix Technologies
-      </p>
+        {/* Social Links */}
+        <div className="ans-flex ans-gap-4 ans-mt-4">
+          <a
+            href="https://linkedin.com/in/anshuman-singh-4546b5275"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ans-text-Blue-600 ans-text-3xl hover:ans-text-Blue-800"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://github.com/f20180039"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ans-text-Gray-800 ans-text-3xl hover:ans-text-Gray-900"
+          >
+            <FaGithub />
+          </a>
+        </div>
+      </div>
 
-      {/* Summary */}
-      <p className="ans-max-w-3xl ans-text-Gray-700 ans-text-center ans-mt-6">
-        Experienced frontend engineer skilled in **React, TypeScript, AI
-        integrations, and performance optimization**. Developed AI-powered
-        medical documentation tools, enhanced electronic medical records (EMR),
-        and improved **healthcare efficiency** through seamless UI/UX.
+      {/* Right: Bio & Actions */}
+      <div className="ans-flex ans-flex-col ans-w-full md:ans-w-1/2 ans-max-w-2xl">
+        <p className="ans-text-lg ans-text-Gray-700 ans-leading-relaxed">
+          Experienced frontend engineer skilled in <strong>React, TypeScript, AI integrations, and performance optimization</strong>. Developed AI-powered medical documentation tools, enhanced electronic medical records (EMR), and improved <strong>healthcare efficiency</strong> through seamless UI/UX.
       </p>
 
       {/* Buttons */}
-      <div className="ans-mt-6 ans-flex ans-gap-4">
+        <div className="ans-flex ans-flex-col sm:ans-flex-row ans-gap-4">
         <a
-          href="/assets/Anshuman-Resume.pdf"
+          href="/assets/AnshumanSingh-FE-Resume.pdf"
           download
-          className="ans-bg-Blue-500 ans-text-White ans-px-6 ans-py-2 ans-rounded ans-shadow-md hover:ans-bg-Blue-600"
+            className="ans-bg-Blue-500 ans-text-White ans-px-6 ans-py-2 ans-rounded ans-shadow-md hover:ans-bg-Blue-600 ans-text-lg ans-text-center"
         >
           Download Resume
         </a>
         <Link
           to="/projects"
-          className="ans-bg-Success-500 ans-text-White ans-px-6 ans-py-2 ans-rounded ans-shadow-md hover:ans-bg-Success-600"
+            className="ans-bg-Success-500 ans-text-White ans-px-6 ans-py-2 ans-rounded ans-shadow-md hover:ans-bg-Success-600 ans-text-lg ans-text-center"
         >
           View Projects
         </Link>
       </div>
-
-      {/* Social Links */}
-      <div className="ans-flex ans-gap-6 ans-mt-6">
-        <a
-          href="https://linkedin.com/in/anshuman-singh-4546b5275"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ans-text-Blue-600 ans-text-10 hover:ans-text-Blue-800"
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="https://github.com/f20180039"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ans-text-Gray-800 ans-text-10 hover:ans-text-Gray-900"
-        >
-          <FaGithub />
-        </a>
       </div>
     </section>
   );
 };
 
 export default Home;
+// const Home = () => (
+//   <div className="ans-p-8">
+//     <h1 className="ans-text-3xl ans-font-bold">Welcome to My Portfolio</h1>
+//     <p className="ans-mt-4">
+//       I'm a Frontend Engineer passionate about building amazing user
+//       experiences.
+//     </p>
+//     <Link
+//       to="/projects"
+//       className="ans-mt-4 ans-inline-block ans-bg-primary ans-text-white ans-px-4 ans-py-2 ans-rounded"
+//     >
+//       View My Work
+//     </Link>
+//   </div>
+// );
