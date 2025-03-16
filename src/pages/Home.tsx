@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <section className="ans-flex ans-flex-col md:ans-flex-row ans-items-center ans-justify-center ans-text-center md:ans-text-left ans-py-20 ans-bg-Gray-50 ans-px-6 md:ans-px-20">
+    <section className="ans-flex ans-flex-col ans-w-full md:ans-flex-row ans-items-center ans-justify-center ans-text-center md:ans-text-left ans-py-20 ans-bg-Gray-50 ans-px-6 md:ans-px-20">
       <div className="ans-flex ans-flex-col ans-items-center md:ans-items-start ans-w-full md:ans-w-1/2 ans-gap-4">
         <img
           src={Profile}
@@ -42,43 +42,34 @@ const Home = () => {
       {/* Right: Bio & Actions */}
       <div className="ans-flex ans-flex-col ans-w-full md:ans-w-1/2 ans-max-w-2xl">
         <p className="ans-text-lg ans-text-Gray-700 ans-leading-relaxed">
-          Experienced frontend engineer skilled in <strong>React, TypeScript, AI integrations, and performance optimization</strong>. Developed AI-powered medical documentation tools, enhanced electronic medical records (EMR), and improved <strong>healthcare efficiency</strong> through seamless UI/UX.
-      </p>
+          Experienced frontend engineer skilled in{" "}
+          <strong>
+            React, TypeScript, AI integrations, and performance optimization
+          </strong>
+          . Developed AI-powered medical documentation tools, enhanced
+          electronic medical records (EMR), and improved{" "}
+          <strong>healthcare efficiency</strong> through seamless UI/UX.
+        </p>
 
-      {/* Buttons */}
+        {/* Buttons */}
         <div className="ans-flex ans-flex-col sm:ans-flex-row ans-gap-4">
-        <a
-          href="/assets/AnshumanSingh-FE-Resume.pdf"
-          download
+          <a
+            href="/assets/AnshumanSingh-FE-Resume.pdf"
+            download
             className="ans-bg-Blue-500 ans-text-White ans-px-6 ans-py-2 ans-rounded ans-shadow-md hover:ans-bg-Blue-600 ans-text-lg ans-text-center"
-        >
-          Download Resume
-        </a>
-        <Link
-          to="/projects"
+          >
+            Download Resume
+          </a>
+          <Link
+            to="/projects"
             className="ans-bg-Success-500 ans-text-White ans-px-6 ans-py-2 ans-rounded ans-shadow-md hover:ans-bg-Success-600 ans-text-lg ans-text-center"
-        >
-          View Projects
-        </Link>
-      </div>
+          >
+            View Projects
+          </Link>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Home;
-// const Home = () => (
-//   <div className="ans-p-8">
-//     <h1 className="ans-text-3xl ans-font-bold">Welcome to My Portfolio</h1>
-//     <p className="ans-mt-4">
-//       I'm a Frontend Engineer passionate about building amazing user
-//       experiences.
-//     </p>
-//     <Link
-//       to="/projects"
-//       className="ans-mt-4 ans-inline-block ans-bg-primary ans-text-white ans-px-4 ans-py-2 ans-rounded"
-//     >
-//       View My Work
-//     </Link>
-//   </div>
-// );
