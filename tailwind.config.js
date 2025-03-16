@@ -181,7 +181,7 @@ const colors = {
 
 module.exports = {
   prefix: "ans-",
-  darkMode: "media",
+  darkMode: "class", // media
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   variants: {
     scale: ["responsive", "hover", "focus", "group-hover"],

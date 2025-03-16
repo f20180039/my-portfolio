@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
-// Apply the stored theme preference when the app starts
+// Ensure default mode is light
+if (!localStorage.getItem("theme")) {
+  localStorage.setItem("theme", "light");
+}
+
 const isDarkMode = localStorage.getItem("theme") === "dark";
 if (isDarkMode) {
   document.documentElement.classList.add("dark");
