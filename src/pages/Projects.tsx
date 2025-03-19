@@ -1,5 +1,7 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import SnapgramImage from "../assets/snapgram.png";
+import { PROJECT_ROUTES } from "../common/constants";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
@@ -7,6 +9,13 @@ const projects = [
     image: SnapgramImage,
     github: "https://github.com/f20180039/snapgram",
     liveDemo: "https://stalkergram.netlify.app",
+  },
+  {
+    title: "Guess Game",
+    image: "",
+    github: "",
+    liveDemo: PROJECT_ROUTES.guessGame,
+    isInternal: true,
   },
   {
     title: "In Progress",
@@ -17,6 +26,19 @@ const projects = [
 ];
 
 export default function Projects() {
+  const navigate = useNavigate();
+
+  const handleLiveDemoClick = (project: {
+    liveDemo: string;
+    isInternal?: boolean;
+  }) => {
+    if (project.isInternal) {
+      navigate(project.liveDemo);
+    } else {
+      window.open(project.liveDemo, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <section
       id="projects"
@@ -34,16 +56,24 @@ export default function Projects() {
             key={index}
             className="ans-bg-Gray-100 dark:ans-bg-Gray-800 ans-rounded-lg ans-shadow-md ans-p-6 ans-w-80"
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="ans-rounded ans-mb-4 ans-w-full ans-h-48 ans-object-cover"
-            />
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                className="ans-rounded ans-mb-4 ans-w-full ans-h-48 ans-object-cover"
+              />
+            ) : (
+              <div className="ans-h-48 ans-w-full ans-bg-Gray-300 dark:ans-bg-Gray-700 ans-flex ans-items-center ans-justify-center ans-rounded">
+                <span className="ans-text-Gray-600 dark:ans-text-Gray-400">
+                  No Image
+                </span>
+              </div>
+            )}
             <h2 className="ans-text-xl ans-font-semibold ans-mb-2 ans-text-Gray-900 dark:ans-text-Gray-200">
               {project.title}
             </h2>
             <div className="ans-flex ans-gap-4 ans-justify-center">
-              {project.github !== "#" ? (
+              {project.github ? (
                 <a
                   href={project.github}
                   target="_blank"
@@ -58,17 +88,15 @@ export default function Projects() {
                   In Progress
                 </span>
               )}
-              {project.liveDemo !== "#" ? (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {project.liveDemo !== "#" && (
+                <button
+                  onClick={() => handleLiveDemoClick(project)}
                   className="ans-flex ans-items-center ans-gap-2 ans-bg-Success-500 dark:ans-bg-Success-600 ans-text-White ans-px-4 ans-py-2 ans-rounded hover:ans-bg-Success-600 dark:hover:ans-bg-Success-500"
                 >
                   <FaExternalLinkAlt />
                   Live Demo
-                </a>
-              ) : null}
+                </button>
+              )}
             </div>
           </div>
         ))}
