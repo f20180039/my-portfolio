@@ -18,6 +18,13 @@ const projects = [
     isInternal: true,
   },
   {
+    title: "Pig Game",
+    image: "",
+    github: "",
+    liveDemo: PROJECT_ROUTES.pigGame,
+    isInternal: true,
+  },
+  {
     title: "In Progress",
     image: "",
     github: "#",

@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import { EAPP_ROUTES, PROJECT_ROUTES } from "./common/constants";
 import Experience from "./pages/Experience";
 import GuessNumber from "./modules/Guess-Number";
+import PigGame from "./modules/Pig-Game";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path={EAPP_ROUTES.projects} element={<Projects />} />
             <Route path={EAPP_ROUTES.contact} element={<Contact />} />
             <Route path={PROJECT_ROUTES.guessGame} element={<GuessNumber />} />
+            <Route path={PROJECT_ROUTES.pigGame} element={<PigGame />} />
           </Routes>
         </main>
         <Footer />
