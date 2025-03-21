@@ -1,17 +1,21 @@
 import { useState } from "react";
 
+interface Player {
+  name: string;
+  frozenScore: number;
+  tempScore: number;
+}
+
 const PigGame = () => {
   const [numPlayers, _setNumPlayers] = useState(2);
-  const [playerNames, _setPlayerNames] = useState(
-    Array(numPlayers)
-      .fill("")
-      .map((_, i) => `Player ${i + 1}`)
+  const [players, setPlayers] = useState<Player[]>(
+    Array.from({ length: numPlayers }, (_, i) => ({
+      name: `Player ${i + 1}`,
+      frozenScore: 0,
+      tempScore: 0,
+    }))
   );
   const [target, _setTarget] = useState(50);
-
-  const [frozenScore, setFrozenScore] = useState(Array(numPlayers).fill(0));
-  const [tempScore, setTempScore] = useState(Array(numPlayers).fill(0));
-
   const [bannedNumber, setBannedNumber] = useState(1);
   const [activePlayerIndex, setActivePlayerIndex] = useState(0);
   const [diceRoll, setDiceRoll] = useState(1);
@@ -21,18 +25,18 @@ const PigGame = () => {
     if (winner) return;
     const dice = Math.ceil(Math.random() * 6);
     setDiceRoll(dice);
-    if (dice === bannedNumber) {
-      setTempScore((prev) =>
-        prev.map((score, index) => (index === activePlayerIndex ? 0 : score))
-      );
-      switchPlayer();
-    } else {
-      setTempScore((prev) =>
-        prev.map((score, index) =>
-          index === activePlayerIndex ? score + dice : score
-        )
-      );
-    }
+
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player, index) =>
+        index === activePlayerIndex
+          ? {
+              ...player,
+              tempScore: dice === bannedNumber ? 0 : player.tempScore + dice,
+            }
+          : player
+      )
+    );
+    if (dice === bannedNumber) switchPlayer();
   };
 
   const switchPlayer = () => {
@@ -40,24 +44,25 @@ const PigGame = () => {
   };
 
   const bankPlayerScore = () => {
-    setFrozenScore((prev) =>
-      prev.map((score, index) =>
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player, index) =>
         index === activePlayerIndex
-          ? score + (tempScore[activePlayerIndex] || 0)
-          : score
+          ? {
+              ...player,
+              frozenScore: player.frozenScore + player.tempScore,
+              tempScore: 0,
+            }
+          : player
       )
     );
 
-    setTempScore((prev) =>
-      prev.map((score, index) => (index === activePlayerIndex ? 0 : score))
-    );
-
     // Check if the active player won
+    const activePlayer = players[activePlayerIndex];
     if (
-      frozenScore[activePlayerIndex] + tempScore[activePlayerIndex] >=
+      (activePlayer?.frozenScore || 0) + (activePlayer?.tempScore || 0) >=
       target
     ) {
-      setWinner(`${playerNames[activePlayerIndex]} Wins! 🎉`);
+      setWinner(`${activePlayer?.name} Wins! 🎉`);
       return;
     }
 
@@ -69,8 +74,13 @@ const PigGame = () => {
   };
 
   const resetGame = () => {
-    setFrozenScore(Array(numPlayers).fill(0));
-    setTempScore(Array(numPlayers).fill(0));
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player) => ({
+        ...player,
+        frozenScore: 0,
+        tempScore: 0,
+      }))
+    );
     setActivePlayerIndex(0);
     setWinner(null);
   };
@@ -82,7 +92,7 @@ const PigGame = () => {
       </h1>
 
       <div className="ans-flex ans-gap-6 ans-bg-White dark:ans-bg-Gray-800 ans-p-6 ans-rounded-lg ans-shadow-md">
-        {frozenScore.map((score, index) => (
+        {players.map((player, index) => (
           <div
             key={index}
             className={`ans-text-center ans-p-4 ans-rounded-lg ${
@@ -92,11 +102,11 @@ const PigGame = () => {
             }`}
           >
             <h2 className="ans-text-4 ans-font-semibold ans-mb-2">
-              Player {index + 1}
+              {player.name}
             </h2>
-            <p className="ans-text-3 ans-font-bold">🏆 {score}</p>
+            <p className="ans-text-3 ans-font-bold">🏆 {player.frozenScore}</p>
             <p className="ans-text-sm ans-text-Gray-600 dark:ans-text-Gray-300">
-              Current: {tempScore[index]}
+              Current: {player.tempScore}
             </p>
           </div>
         ))}
@@ -104,7 +114,7 @@ const PigGame = () => {
 
       {winner ? (
         <div className="ans-text-4 ans-font-bold ans-text-Green-500">
-          🎉 {winner} Wins! 🎉
+          🎉 {winner} 🎉
         </div>
       ) : (
         <>
