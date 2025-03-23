@@ -49,25 +49,22 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="ans-py-12 ans-text-center ans-bg-White dark:ans-bg-Gray-900 ans-text-Gray-900 dark:ans-text-White"
+      className="ans-flex ans-flex-col ans-gap-xlarge ans-py-xlarge ans-text-center ans-bg-White dark:ans-bg-Gray-900 ans-text-Gray-900 dark:ans-text-White"
     >
       <p className="ans-text-lg ans-font-medium ans-text-Gray-700 dark:ans-text-Gray-300">
-        Browse My Recent
+        Browse My Recent Projects
       </p>
-      <h1 className="ans-text-3xl ans-font-bold ans-text-Blue-600 dark:ans-text-Blue-400">
-        Projects
-      </h1>
-      <div className="ans-flex ans-flex-wrap ans-justify-center ans-gap-8 ans-mt-8">
+      <div className="ans-flex ans-flex-wrap ans-justify-center ans-gap-8">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="ans-bg-Gray-100 dark:ans-bg-Gray-800 ans-rounded-lg ans-shadow-md ans-p-6 ans-w-80"
+            className="ans-flex ans-flex-col ans-gap-medium ans-bg-Gray-100 dark:ans-bg-Gray-800 ans-rounded-lg ans-shadow-md ans-p-6 ans-w-80"
           >
             {project.image ? (
               <img
                 src={project.image}
                 alt={project.title}
-                className="ans-rounded ans-mb-4 ans-w-full ans-h-48 ans-object-cover"
+                className="ans-rounded ans-w-full ans-h-48 ans-object-cover"
               />
             ) : (
               <div className="ans-h-48 ans-w-full ans-bg-Gray-300 dark:ans-bg-Gray-700 ans-flex ans-items-center ans-justify-center ans-rounded">
@@ -76,25 +73,26 @@ export default function Projects() {
                 </span>
               </div>
             )}
-            <h2 className="ans-text-xl ans-font-semibold ans-mb-2 ans-text-Gray-900 dark:ans-text-Gray-200">
+            <h2 className="ans-text-xl ans-font-semibold ans-text-Gray-900 dark:ans-text-Gray-200">
               {project.title}
             </h2>
             <div className="ans-flex ans-gap-4 ans-justify-center">
-              {project.github ? (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ans-flex ans-items-center ans-gap-2 ans-bg-Blue-500 dark:ans-bg-Blue-600 ans-text-White ans-px-4 ans-py-2 ans-rounded hover:ans-bg-Blue-600 dark:hover:ans-bg-Blue-500"
-                >
-                  <FaGithub />
-                  GitHub
-                </a>
-              ) : (
-                <span className="ans-bg-Gray-400 dark:ans-bg-Gray-600 ans-text-White ans-px-4 ans-py-2 ans-rounded">
-                  In Progress
-                </span>
-              )}
+              {!project.isInternal &&
+                (project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ans-flex ans-items-center ans-gap-2 ans-bg-Blue-500 dark:ans-bg-Blue-600 ans-text-White ans-px-4 ans-py-2 ans-rounded hover:ans-bg-Blue-600 dark:hover:ans-bg-Blue-500"
+                  >
+                    <FaGithub />
+                    GitHub
+                  </a>
+                ) : (
+                  <span className="ans-bg-Gray-400 dark:ans-bg-Gray-600 ans-text-White ans-px-4 ans-py-2 ans-rounded">
+                    In Progress
+                  </span>
+                ))}
               {project.liveDemo !== "#" && (
                 <button
                   onClick={() => handleLiveDemoClick(project)}
