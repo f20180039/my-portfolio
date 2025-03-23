@@ -297,6 +297,7 @@ module.exports = {
     },
     fontFamily: {
       inter: "Inter",
+      mario: ['"Press Start 2P"', 'sans-serif'],
     },
     extend: {
       gridTemplateColumns: {
