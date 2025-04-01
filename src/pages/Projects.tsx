@@ -65,6 +65,7 @@ export default function Projects() {
                 src={project.image}
                 alt={project.title}
                 className="ans-rounded ans-w-full ans-h-48 ans-object-cover"
+                loading="lazy"
               />
             ) : (
               <div className="ans-h-48 ans-w-full ans-bg-Gray-300 dark:ans-bg-Gray-700 ans-flex ans-items-center ans-justify-center ans-rounded">
