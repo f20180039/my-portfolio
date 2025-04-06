@@ -21,7 +21,7 @@ const AboutMe = () => (
       About Me
     </h2>
     <p className="ans-text-3 ans-text-Gray-700 dark:ans-text-Gray-300 ans-leading-relaxed">
-      I'm a passionate <strong>Frontend Engineer</strong> with a strong
+      I&apos;m a passionate <strong>Frontend Engineer</strong> with a strong
       background in
       <strong>
         {" "}

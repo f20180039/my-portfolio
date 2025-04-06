@@ -22,6 +22,7 @@ const PigGame = () => {
   const [winner, setWinner] = useState<string | null>(null);
 
   const handleDiceRoll = () => {
+    console.log("Unused variable", _setNumPlayers, _setTarget);
     if (winner) return;
     const dice = Math.ceil(Math.random() * 6);
     setDiceRoll(dice);

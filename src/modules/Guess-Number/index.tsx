@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const GuessNumber = () => {
   const [max, setMax] = useState(50);
@@ -9,14 +9,14 @@ const GuessNumber = () => {
   const [showTarget, setShowTarget] = useState(false);
 
   // Generate a new random target number
-  const getTarget = () => {
+  const getTarget = useCallback(() => {
     const newTarget = Math.floor(Math.random() * max) + 1; // Ensures 1 to max
     setTarget(newTarget);
     setScore(max);
     setMessage("");
     setGuess(null);
     setShowTarget(false);
-  };
+  }, [max]);
 
   const handleValidateGuess = () => {
     if (guess === null || target === null) return;
@@ -32,7 +32,7 @@ const GuessNumber = () => {
   };
   useEffect(() => {
     getTarget();
-  }, []);
+  }, [getTarget]);
 
   return (
     <div className="ans-flex ans-flex-col ans-items-center ans-gap-6 ans-p-6 ans-font-mario ans-bg-White dark:ans-bg-Gray-900 ans-text-Gray-900 dark:ans-text-White">
