@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaMoon, FaSun } from "react-icons/fa";
-import { useThemeStore } from "../store/theme-store";
+// import { FaMoon, FaSun } from "react-icons/fa";
+// import { useThemeStore } from "../store/theme-store";
 import { NAV_LINKS } from "../constants";
 
 export default function Header() {
