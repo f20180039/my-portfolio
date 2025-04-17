@@ -1,5 +1,6 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import SnapgramImage from "../assets/snapgram.png";
+import GuessGame from "../assets/GuessGame.png";
 import { PROJECT_ROUTES } from "../common/constants";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +13,7 @@ const projects = [
   },
   {
     title: "Guess Game",
-    image: "",
+    image: GuessGame,
     github: "",
     liveDemo: PROJECT_ROUTES.guessGame,
     isInternal: true,
@@ -64,7 +65,7 @@ export default function Projects() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="ans-rounded ans-w-full ans-h-48 ans-object-cover"
+                className="ans-rounded ans-w-full ans-h-48 ans-object-scale-down"
                 loading="lazy"
               />
             ) : (
