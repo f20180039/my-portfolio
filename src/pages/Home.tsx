@@ -39,6 +39,7 @@ const Home = () => {
             href={C_LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit my LinkedIn profile"
             className="ans-text-Blue-600 dark:ans-text-Blue-400 ans-text-6 hover:ans-text-Blue-800 dark:hover:ans-text-Blue-300"
           >
             <FaLinkedin />
@@ -47,6 +48,7 @@ const Home = () => {
             href={C_GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
             className="ans-text-Gray-800 dark:ans-text-Gray-300 ans-text-6 hover:ans-text-Gray-900 dark:hover:ans-text-White"
           >
             <FaGithub />

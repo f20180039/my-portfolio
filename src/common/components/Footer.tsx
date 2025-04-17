@@ -19,7 +19,7 @@ export default function Footer() {
         </ul>
       </nav>
       <p className="ans-text-Gray-400 dark:ans-text-Gray-500">
-        Copyright &copy; 2024 Anshuman Singh. All Rights Reserved.
+        Copyright &copy; 2024 Anshuman Singh.
       </p>
     </footer>
   );
